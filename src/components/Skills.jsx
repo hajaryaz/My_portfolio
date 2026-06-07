@@ -36,7 +36,6 @@ function ProofCard({ c }) {
         <div className={styles.proofImgOverlay} />
       </div>
       <div className={styles.proofBody}>
-        <div className={styles.proofEmoji}>{c.emoji}</div>
         <div>
           <div className={styles.proofSkill}>{c.skill}</div>
           <div className={styles.proofTitle}>{c.title}</div>
