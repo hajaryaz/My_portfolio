@@ -1,0 +1,79 @@
+.layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+}
+
+.subtitle {
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--lavender); margin-bottom: 1.5rem;
+  border-bottom: 0.5px solid var(--border); padding-bottom: 0.75rem;
+}
+
+/* ── TECH PILLS ── */
+.groups { display: flex; flex-direction: column; gap: 1.5rem; }
+.groupTitle {
+  font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.75rem;
+}
+.pillGrid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.pill {
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: 0.5px solid var(--border2); background: var(--bg2);
+  font-size: 12px; color: var(--soft);
+  transition: border-color 0.2s, color 0.2s;
+}
+.pill img { width: 20px; height: 20px; object-fit: contain; }
+.pill:hover { border-color: var(--rose2); color: var(--rose); }
+
+.pill.grn  { border-color: rgba(109,191,127,0.2); }
+.pill.grn:hover  { border-color: var(--green);    color: var(--green); }
+.pill.teal { border-color: rgba(126,200,192,0.2); }
+.pill.teal:hover { border-color: var(--teal);     color: var(--teal); }
+.pill.lav  { border-color: rgba(184,168,216,0.2); }
+.pill.lav:hover  { border-color: var(--lavender); color: var(--lavender); }
+
+/* ── PROOF CARDS ── */
+.proofGrid { display: flex; flex-direction: column; gap: 0.75rem; }
+.proofHint { font-size: 11px; color: var(--muted); margin-top: 0.75rem; }
+
+.proofCard {
+  position: relative; overflow: hidden;
+  border: 0.5px solid var(--border); background: var(--bg2);
+  min-height: 140px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.proofCard:hover { border-color: var(--rose2); transform: translateX(4px); }
+
+.proofImgWrap { position: absolute; inset: 0; overflow: hidden; }
+.proofImgs { display: flex; height: 100%; width: 100%; }
+.proofImg {
+  width: 50%; height: 100%; object-fit: contain; object-position: center;
+  opacity: 0; transform: scale(1.02);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.proofImgOverlay {
+  position: absolute; inset: 0;
+  background: rgba(9, 9, 15, 0.72);
+  transition: background 0.4s ease;
+}
+/* hover reveals the image */
+.proofCard:hover .proofImg { opacity: 1; transform: scale(1); }
+.proofCard:hover .proofImgOverlay { background: rgba(9, 9, 15, 0.45); }
+
+.proofBody {
+  position: relative; z-index: 2;
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.1rem 1.25rem;
+}
+.proofEmoji { font-size: 1.4rem; flex-shrink: 0; }
+.proofSkill {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--rose2); margin-bottom: 0.2rem;
+}
+.proofTitle { font-size: 13px; color: var(--text); margin-bottom: 0.3rem; }
+.proofDesc  { font-size: 11px; color: var(--soft); line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 2.5rem; }
+}
