@@ -3,12 +3,12 @@ import styles from './About.module.css'
 
 export default function About() {
   return (
-    <section className={`${styles.section} reveal`}>
+    <section id="about" className={`${styles.section} reveal`}>
       <div className={styles.container}>
         <div className={styles.text}>
           <div className="section-label">About Me</div>
           <p>Hi, I'm Hajar! A 4th-year AI &amp; Digital Transformation engineering student at the <strong>National School of Applied Sciences of Al Hoceima (ENSAH)</strong>.</p>
-          <p style={{ marginTop: '1rem' }}>I'm currently strengthening my skills in deep learning, Java &amp; Spring Boot, and exploring big data pipelines through hands-on projects.</p>
+          <p style={{ marginTop: '1rem' }}>I'm currently strengthening my expertise in deep learning, Java &amp; Spring Boot, and data engineering while building hands-on projects focused on AI, cloud technologies, and scalable data pipelines.</p>
           <div className={styles.focus}>
             <span className={styles.focusHead}>// Current Focus:</span>
             <ul>

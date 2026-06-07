@@ -1,16 +1,62 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import styles from './Contact.module.css'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState('idle')
+  const [feedback, setFeedback] = useState('')
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    const mailto = `mailto:hajarelyazri10@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message + '\n\nFrom: ' + form.email)}`
-    window.location.href = mailto
-    setSent(true)
-    setTimeout(() => setSent(false), 3000)
+
+    const name = form.name.trim()
+    const email = form.email.trim()
+    const message = form.message.trim()
+
+    if (!name || !email || !message) {
+      setStatus('error')
+      setFeedback('Please fill in all fields before sending.')
+      return
+    }
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus('error')
+      setFeedback('Email service is not configured. Check your environment variables.')
+      return
+    }
+
+    setStatus('sending')
+    setFeedback('')
+
+    const templateParams = {
+      name,
+      email,
+      message,
+    }
+
+    console.log('EmailJS send payload:', templateParams)
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey,
+      )
+
+      setStatus('success')
+      setFeedback('Message sent successfully!')
+      setForm({ name: '', email: '', message: '' })
+    } catch (error) {
+      setStatus('error')
+      setFeedback('Unable to send the message. Please try again later.')
+      console.error('EmailJS error:', error)
+    }
   }
 
   return (
@@ -67,9 +113,20 @@ export default function Contact() {
               value={form.message}
               onChange={e => setForm({ ...form, message: e.target.value })} />
           </div>
-          <button type="submit" className={styles.submit}>
-            {sent ? '✓ Opening Mail...' : 'Send Message →'}
+          <button type="submit" className={styles.submit} disabled={status === 'sending'}>
+            {status === 'sending' ? 'Sending…' : 'Send Message →'}
           </button>
+          {feedback && (
+            <p
+              className={styles.blurb}
+              style={{
+                marginTop: '.75rem',
+                color: status === 'error' ? '#f55656' : status === 'success' ? '#42b883' : undefined,
+              }}
+            >
+              {feedback}
+            </p>
+          )}
         </form>
       </div>
     </section>

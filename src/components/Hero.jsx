@@ -9,7 +9,7 @@ export default function Hero() {
     'Full-Stack Builder',
   ])
   return (
-    <section id="about" className={styles.hero}>
+    <section id="home" className={styles.hero}>
       <div className={styles.left}>
         <div className={styles.eyebrow}>
           <span>{typed}</span>
@@ -17,13 +17,11 @@ export default function Hero() {
         </div>
         <h1 className={styles.name}>Hajar<br /><em>Elyazri</em></h1>
         <p className={styles.subtitle}>
-          AI &amp; Digital Transformation engineering student crafting practical,
-          data-driven solutions. Passionate about cloud pipelines, ETL systems,
-          deep learning, and competing in hackathons.
+          Driven by curiosity about AI, data engineering, and software development, I enjoy collaborating to transform ideas into practical solutions while continuously learning through projects, hackathons, and teamwork.
         </p>
         <div className={styles.status}>
           <span className={styles.dot} />
-          OPEN_TO_WORK · Fès, Morocco · Remote OK
+          Open to Internships • AI • Data Engineering • Software Development
         </div>
         <div className={styles.ctas}>
           <a href="#projects" className="btn-primary">View Projects →</a>
