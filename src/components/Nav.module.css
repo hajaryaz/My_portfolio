@@ -36,7 +36,16 @@
   .nav.scrolled { padding: 0.7rem 2rem; }
   .links { gap: 1.5rem; }
 }
-@media (max-width: 500px) {
-  .links { gap: 1rem; }
-  .links a { font-size: 10px; }
+@media (max-width: 600px) {
+  .nav, .nav.scrolled { padding-left: 1.25rem; padding-right: 1.25rem; gap: 1rem; }
+  .logo { flex-shrink: 0; font-size: 0.9rem; }
+  /* 5 links don't fit on a phone: let them scroll sideways instead of overflowing */
+  .links {
+    gap: 1rem; min-width: 0;
+    overflow-x: auto; scrollbar-width: none;
+    padding-bottom: 6px; margin-bottom: -6px;
+  }
+  .links::-webkit-scrollbar { display: none; }
+  .links li { flex-shrink: 0; }
+  .links a { font-size: 10px; letter-spacing: 0.08em; }
 }

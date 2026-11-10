@@ -4,7 +4,7 @@ import styles from './Hero.module.css'
 export default function Hero() {
   const typed = useTypewriter([
     'AI & Digital Transformation',
-    'Data Engineer in Progress',
+    'GenAI & LLM Apps',
     'Hackathon Winner 🏆',
     'Full-Stack Builder',
   ])
@@ -17,11 +17,11 @@ export default function Hero() {
         </div>
         <h1 className={styles.name}>Hajar<br /><em>Elyazri</em></h1>
         <p className={styles.subtitle}>
-          Driven by curiosity about AI, data engineering, and software development, I enjoy collaborating to transform ideas into practical solutions while continuously learning through projects, hackathons, and teamwork.
+          I've always needed to understand how things work, and AI is where that curiosity found its purpose. With AI, you can build real things and adapt them to almost any field, from space to recruitment to air quality.
         </p>
         <div className={styles.status}>
           <span className={styles.dot} />
-          Open to Internships • AI • Data Engineering • Software Development
+          Seeking a 6-month PFE internship • Jan 2027 • AI / GenAI / LLMs
         </div>
         <div className={styles.ctas}>
           <a href="#projects" className="btn-primary">View Projects →</a>
@@ -37,7 +37,7 @@ export default function Hero() {
         </div>
         <div className={styles.availBadge}>
           <span className={styles.availDot} />
-          AVAILABLE FOR COLLABORATION
+          AVAILABLE FOR PFE · JAN 2027
         </div>
       </div>
     </section>
