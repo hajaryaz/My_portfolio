@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { useLang } from '../i18n'
 import styles from './Contact.module.css'
 
 export default function Contact() {
+  const { t } = useLang()
+  const c = t.contact
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState('idle')
   const [feedback, setFeedback] = useState('')
@@ -16,7 +19,7 @@ export default function Contact() {
 
     if (!name || !email || !message) {
       setStatus('error')
-      setFeedback('Please fill in all fields before sending.')
+      setFeedback('fill')
       return
     }
 
@@ -26,7 +29,7 @@ export default function Contact() {
 
     if (!serviceId || !templateId || !publicKey) {
       setStatus('error')
-      setFeedback('Email service is not configured. Check your environment variables.')
+      setFeedback('config')
       return
     }
 
@@ -50,11 +53,11 @@ export default function Contact() {
       )
 
       setStatus('success')
-      setFeedback('Message sent successfully!')
+      setFeedback('success')
       setForm({ name: '', email: '', message: '' })
     } catch (error) {
       setStatus('error')
-      setFeedback('Unable to send the message. Please try again later.')
+      setFeedback('fail')
       console.error('EmailJS error:', error)
     }
   }
@@ -63,15 +66,15 @@ export default function Contact() {
     <section id="contact" className="section">
       <div className={`container ${styles.wrap}`}>
         <div className={`${styles.intro} reveal`}>
-          <div className="section-label">Contact</div>
+          <div className="section-label">{c.label}</div>
           <p className={styles.badge} style={{ marginTop: '1.25rem' }}>
-            <span className={styles.tag}>&lt;</span>GET_IN_TOUCH<span className={styles.tag}> /&gt;</span>
+            <span className={styles.tag}>&lt;</span>{c.badge}<span className={styles.tag}> /&gt;</span>
           </p>
           <p className={styles.blurb} style={{ marginTop: '.75rem' }}>
-            Open to collaboration, hackathons, and technical challenges — feel free to reach out.
+            {c.blurb1}
           </p>
           <p className={styles.blurb}>
-            Currently seeking a 6-month PFE internship starting January 2027 in AI, GenAI or LLM engineering.
+            {c.blurb2}
           </p>
 
           <div className={styles.links}>
@@ -91,30 +94,30 @@ export default function Contact() {
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
               <circle cx="12" cy="9" r="2.5" />
             </svg>
-            Fès, Morocco · PFE internship from Jan 2027 · Remote OK
+            {c.location}
           </div>
         </div>
 
         <form className={`${styles.form} reveal`} onSubmit={handleSubmit}>
           <div className={styles.group}>
-            <label className={styles.label}>Name</label>
-            <input className={styles.input} placeholder="Your name" value={form.name}
+            <label className={styles.label}>{c.name}</label>
+            <input className={styles.input} placeholder={c.namePh} value={form.name}
               onChange={e => setForm({ ...form, name: e.target.value })} />
           </div>
           <div className={styles.group}>
-            <label className={styles.label}>Email</label>
-            <input className={styles.input} type="email" placeholder="your@email.com" value={form.email}
+            <label className={styles.label}>{c.email}</label>
+            <input className={styles.input} type="email" placeholder={c.emailPh} value={form.email}
               onChange={e => setForm({ ...form, email: e.target.value })} />
           </div>
           <div className={styles.group}>
-            <label className={styles.label}>Message</label>
+            <label className={styles.label}>{c.message}</label>
             <textarea className={styles.textarea}
-              placeholder="Tell me about your project or opportunity..."
+              placeholder={c.messagePh}
               value={form.message}
               onChange={e => setForm({ ...form, message: e.target.value })} />
           </div>
           <button type="submit" className={styles.submit} disabled={status === 'sending'}>
-            {status === 'sending' ? 'Sending…' : 'Send Message →'}
+            {status === 'sending' ? c.sending : c.send}
           </button>
           {feedback && (
             <p
@@ -124,7 +127,7 @@ export default function Contact() {
                 color: status === 'error' ? '#f55656' : status === 'success' ? '#42b883' : undefined,
               }}
             >
-              {feedback}
+              {c[feedback]}
             </p>
           )}
         </form>

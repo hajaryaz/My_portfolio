@@ -1,13 +1,10 @@
 import { useTypewriter } from '../hooks'
+import { useLang } from '../i18n'
 import styles from './Hero.module.css'
 
 export default function Hero() {
-  const typed = useTypewriter([
-    'AI & Digital Transformation',
-    'GenAI & LLM Apps',
-    'Hackathon Winner 🏆',
-    'Full-Stack Builder',
-  ])
+  const { t } = useLang()
+  const typed = useTypewriter(t.hero.typed)
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.left}>
@@ -17,15 +14,15 @@ export default function Hero() {
         </div>
         <h1 className={styles.name}>Hajar<br /><em>Elyazri</em></h1>
         <p className={styles.subtitle}>
-          I've always needed to understand how things work, and AI is where that curiosity found its purpose. With AI, you can build real things and adapt them to almost any field, from space to recruitment to air quality.
+          {t.hero.subtitle}
         </p>
         <div className={styles.status}>
           <span className={styles.dot} />
-          Seeking a 6-month PFE internship • Jan 2027 • AI / GenAI / LLMs
+          {t.hero.status}
         </div>
         <div className={styles.ctas}>
-          <a href="#projects" className="btn-primary">View Projects →</a>
-          <a href="#contact" className="btn-ghost">Get in Touch</a>
+          <a href="#projects" className="btn-primary">{t.hero.viewProjects}</a>
+          <a href="#contact" className="btn-ghost">{t.hero.getInTouch}</a>
         </div>
       </div>
       <div className={styles.right}>
@@ -37,7 +34,7 @@ export default function Hero() {
         </div>
         <div className={styles.availBadge}>
           <span className={styles.availDot} />
-          AVAILABLE FOR PFE · JAN 2027
+          {t.hero.badge}
         </div>
       </div>
     </section>

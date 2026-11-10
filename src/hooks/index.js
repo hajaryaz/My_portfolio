@@ -4,6 +4,11 @@ export function useTypewriter(texts, speed = 80, pause = 1800) {
   const [display, setDisplay] = useState('')
   const [idx, setIdx] = useState(0)
   const [deleting, setDeleting] = useState(false)
+  // Restart from scratch when the word list changes (e.g. language switch)
+  const key = texts.join('|')
+  useEffect(() => {
+    setDisplay(''); setIdx(0); setDeleting(false)
+  }, [key])
   useEffect(() => {
     const current = texts[idx % texts.length]
     const timeout = setTimeout(() => {
