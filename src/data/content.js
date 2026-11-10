@@ -3,7 +3,7 @@ export const NAV_LINKS = ["about", "experience", "skills", "projects", "contact"
 
 // ── ABOUT STATS ──────────────────────────────────────────────────────────────
 export const STATS = [
-  { num: "5",             label: { en: "Projects", fr: "Projets" } },
+  { num: "6",             label: { en: "Projects", fr: "Projets" } },
   { num: "2",             label: { en: "Internships", fr: "Stages" } },
   { num: "Global",        label: { en: "NASA Space Apps Global Nominee", fr: "Nomination mondiale NASA Space Apps" }, small: true },
   { num: { en: "National\nWinner", fr: "1re place\nnationale" }, label: "ActInSpace", small: true },
@@ -271,5 +271,20 @@ export const PROJECTS = [
     tech: ["Python", "scikit-learn", "Pandas", "NumPy", "Jupyter", "Matplotlib"],
     github: "https://github.com/hajaryaz",
     wip: true,
+  },
+  {
+    num: "06",
+    type: { en: "ETL · Web Scraping · Data Analysis", fr: "ETL · Web Scraping · Analyse de données" },
+    title: { en: "Tech Skills Demand Analyzer — ETL Pipeline", fr: "Analyse de la demande en compétences Tech — Pipeline ETL" },
+    desc: {
+      en: "ETL pipeline that scrapes LinkedIn job listings for AI, ML, MLOps, Data, Cloud and GenAI roles, extracts 50+ in-demand technical skills with regex, loads the results into PostgreSQL and visualizes skill-demand trends.",
+      fr: "Pipeline ETL qui collecte des offres LinkedIn pour des postes IA, ML, MLOps, Data, Cloud et GenAI, extrait plus de 50 compétences techniques recherchées grâce aux regex, charge les résultats dans PostgreSQL et visualise les tendances de la demande.",
+    },
+    pipeline: {
+      en: ["LinkedIn Scraping", "Skill Extraction", "PostgreSQL", "Visualization"],
+      fr: ["Scraping LinkedIn", "Extraction des compétences", "PostgreSQL", "Visualisation"],
+    },
+    tech: ["Python", "BeautifulSoup", "Pandas", "Regex", "PostgreSQL", "Matplotlib"],
+    github: "https://github.com/hajaryaz/ETL",
   },
 ];
