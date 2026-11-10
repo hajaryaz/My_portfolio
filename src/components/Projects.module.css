@@ -36,7 +36,6 @@
   padding: 0.2rem 0.5rem;
 }
 .wip    { border: 0.5px solid var(--amber);  color: var(--amber); }
-.collab { border: 0.5px solid var(--teal);   color: var(--teal);  }
 
 .type {
   font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;

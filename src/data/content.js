@@ -104,8 +104,8 @@ export const PROOF_CARDS = [
     skill: { en: "Sponsorship · Community · 2024–2025", fr: "Sponsoring · Communauté · 2024–2025" },
     title: { en: "DatAI Club — Sponsorship Lead", fr: "DatAI Club — Responsable sponsoring" },
     desc: {
-      en: "We learn and we teach: with the team, ran data & AI discovery sessions for primary school children and Python & SQL workshops for beginners, and brought in sponsors for club events.",
-      fr: "On apprend et on transmet : avec l'équipe, séances de découverte data & IA pour des enfants d'école primaire, ateliers Python & SQL pour débutants, et recherche de sponsors pour les événements du club.",
+      en: "We learn and we teach. Part of the club board that organized data & AI discovery sessions for primary school children and Python & SQL workshops for beginners; in charge of finding sponsors for club events.",
+      fr: "On apprend et on transmet. Membre du bureau qui a organisé des séances de découverte data & IA pour des enfants d'école primaire et des ateliers Python & SQL pour débutants ; en charge de la recherche de sponsors pour les événements du club.",
     },
     img: "/assets/datai1.jpg",
     img2: "/assets/datai2.jpg",
@@ -216,7 +216,6 @@ export const PROJECTS = [
     },
     tech: ["JavaScript", "Python", "Deep Learning", "REST API", "Node.js"],
     github: "https://github.com/Marouazzz/ai_human_detector",
-    collab: true,
   },
   {
     num: "02",
@@ -232,7 +231,6 @@ export const PROJECTS = [
     },
     tech: ["Python", "Airflow", "FastAPI", "MySQL", "scikit-learn", "Selenium", "Docker", "Power BI"],
     github: "https://github.com/hajaryaz/HireFlow",
-    collab: true,
   },
   {
     num: "03",
@@ -248,7 +246,6 @@ export const PROJECTS = [
     },
     tech: ["Azure IoT Hub", "Stream Analytics", "Power BI", "Docker", "Python", "OpenWeather API"],
     github: "https://github.com/hajaryaz/Real-time-weather-telemetry-with-Azure",
-    collab: true,
   },
   {
     num: "04",
@@ -264,7 +261,6 @@ export const PROJECTS = [
     },
     tech: ["Java", "Spring Boot", "Hibernate", "MySQL"],
     github: "https://github.com/Marouazzz/pfe-spring",
-    collab: true,
   },
   {
     num: "05",

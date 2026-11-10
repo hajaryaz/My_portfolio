@@ -19,7 +19,6 @@ function ProjectCard({ p, index }) {
         <div className={styles.num}>{p.num}</div>
         <div className={styles.badges}>
           {p.wip    && <span className={`${styles.badge} ${styles.wip}`}>{t.projects.wip}</span>}
-          {p.collab && <span className={`${styles.badge} ${styles.collab}`}>{t.projects.collab}</span>}
         </div>
       </div>
       <div className={styles.type}>{tr(p.type)}</div>
