@@ -31,10 +31,36 @@
 .links a:hover { color: var(--rose); }
 .links a:hover::after { width: 100%; }
 
+.right {
+  display: flex; align-items: center; gap: 2.5rem; min-width: 0;
+}
+
+/* EN / FR switch */
+.lang {
+  display: flex; flex-shrink: 0;
+  border: 0.5px solid var(--border2);
+}
+.langBtn {
+  background: transparent; border: none; cursor: pointer;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em;
+  padding: 0.3rem 0.55rem;
+  color: var(--muted);
+  transition: color 0.2s, background 0.2s;
+}
+.langBtn:hover { color: var(--rose); }
+.langBtn + .langBtn { border-left: 0.5px solid var(--border2); }
+.langActive, .langActive:hover { background: var(--rose2); color: #fff; }
+
+@media (max-width: 1100px) {
+  .links { gap: 1.75rem; }
+  .right { gap: 1.75rem; }
+}
 @media (max-width: 900px) {
   .nav { padding: 1rem 2rem; }
   .nav.scrolled { padding: 0.7rem 2rem; }
-  .links { gap: 1.5rem; }
+  .links { gap: 1.25rem; }
+  .right { gap: 1.25rem; }
 }
 @media (max-width: 600px) {
   .nav, .nav.scrolled { padding-left: 1.25rem; padding-right: 1.25rem; gap: 1rem; }
@@ -48,4 +74,6 @@
   .links::-webkit-scrollbar { display: none; }
   .links li { flex-shrink: 0; }
   .links a { font-size: 10px; letter-spacing: 0.08em; }
+  .right { gap: 0.75rem; }
+  .langBtn { padding: 0.25rem 0.45rem; font-size: 9px; }
 }

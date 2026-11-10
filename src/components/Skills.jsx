@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { TECH_GROUPS, PROOF_CARDS } from '../data/content'
+import { useLang } from '../i18n'
 import styles from './Skills.module.css'
 
 function TechPill({ item, color }) {
+  const { tr } = useLang()
+  const name = tr(item.name)
   return (
     <div className={`${styles.pill} ${color ? styles[color] : ''}`}>
       {item.svg && !item.bi ? (
@@ -13,15 +16,17 @@ function TechPill({ item, color }) {
       ) : item.bi ? (
         <span style={{ fontSize: '12px' }}>📊</span>
       ) : (
-        <img src={item.icon} alt={item.name} width={14} height={14}
+        <img src={item.icon} alt={name} width={14} height={14}
           style={item.invert ? { filter: 'invert(1)' } : undefined} />
       )}
-      {item.name}
+      {name}
     </div>
   )
 }
 
 function ProofCard({ c }) {
+  const { tr } = useLang()
+  const title = tr(c.title)
   const [hovered, setHovered] = useState(false)
   return (
     <div
@@ -31,16 +36,16 @@ function ProofCard({ c }) {
     >
       <div className={styles.proofImgWrap}>
         <div className={styles.proofImgs}>
-          <img src={c.img} alt={c.title} className={styles.proofImg} />
-          <img src={c.img2 ? c.img2 : c.img} alt={c.title + ' 2'} className={styles.proofImg} />
+          <img src={c.img} alt={title} className={styles.proofImg} />
+          <img src={c.img2 ? c.img2 : c.img} alt={title + ' 2'} className={styles.proofImg} />
         </div>
         <div className={styles.proofImgOverlay} />
       </div>
       <div className={styles.proofBody}>
         <div>
-          <div className={styles.proofSkill}>{c.skill}</div>
-          <div className={styles.proofTitle}>{c.title}</div>
-          <div className={styles.proofDesc}>{c.desc}</div>
+          <div className={styles.proofSkill}>{tr(c.skill)}</div>
+          <div className={styles.proofTitle}>{title}</div>
+          <div className={styles.proofDesc}>{tr(c.desc)}</div>
         </div>
       </div>
     </div>
@@ -48,21 +53,22 @@ function ProofCard({ c }) {
 }
 
 export default function Skills() {
+  const { t, tr } = useLang()
   return (
     <section id="skills" className="section">
       <div className="container">
-        <div className="section-label reveal">Skills</div>
+        <div className="section-label reveal">{t.skills.label}</div>
         <div className={styles.layout}>
           {/* Technical stack */}
           <div className="reveal">
-            <div className={styles.subtitle}>Technical Stack</div>
+            <div className={styles.subtitle}>{t.skills.technical}</div>
             <div className={styles.groups}>
               {TECH_GROUPS.map(g => (
-                <div key={g.title}>
-                  <div className={styles.groupTitle}>{g.title}</div>
+                <div key={g.title.en || g.title}>
+                  <div className={styles.groupTitle}>{tr(g.title)}</div>
                   <div className={styles.pillGrid}>
                     {g.items.map(item => (
-                      <TechPill key={item.name} item={item} color={g.color} />
+                      <TechPill key={item.name.en || item.name} item={item} color={g.color} />
                     ))}
                   </div>
                 </div>
@@ -72,11 +78,11 @@ export default function Skills() {
 
           {/* Human skills */}
           <div className="reveal">
-            <div className={styles.subtitle}>Human Skills — proven in action</div>
+            <div className={styles.subtitle}>{t.skills.human}</div>
             <div className={styles.proofGrid}>
-              {PROOF_CARDS.map(c => <ProofCard key={c.title} c={c} />)}
+              {PROOF_CARDS.map(c => <ProofCard key={c.img} c={c} />)}
             </div>
-            <p className={styles.proofHint}>→ hover each card to reveal the moment</p>
+            <p className={styles.proofHint}>{t.skills.hint}</p>
           </div>
         </div>
       </div>
