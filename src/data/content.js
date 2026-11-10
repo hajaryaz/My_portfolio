@@ -101,6 +101,16 @@ export const PROOF_CARDS = [
     img2: "/assets/tgd1.png",
   },
   {
+    skill: { en: "Sponsorship · Community · 2024–2025", fr: "Sponsoring · Communauté · 2024–2025" },
+    title: { en: "DatAI Club — Sponsorship Lead", fr: "DatAI Club — Responsable sponsoring" },
+    desc: {
+      en: "We learn and we teach: with the team, ran data & AI discovery sessions for primary school children and Python & SQL workshops for beginners, and brought in sponsors for club events.",
+      fr: "On apprend et on transmet : avec l'équipe, séances de découverte data & IA pour des enfants d'école primaire, ateliers Python & SQL pour débutants, et recherche de sponsors pour les événements du club.",
+    },
+    img: "/assets/datai1.jpg",
+    img2: "/assets/datai2.jpg",
+  },
+  {
     skill: { en: "Collaboration under pressure", fr: "Collaboration sous pression" },
     title: { en: "NASA Space Apps — Global Nominee", fr: "NASA Space Apps — Nomination mondiale" },
     desc: {
