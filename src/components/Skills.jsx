@@ -60,7 +60,7 @@ export default function Skills() {
         <div className="section-label reveal">{t.skills.label}</div>
         <div className={styles.layout}>
           {/* Technical stack */}
-          <div className="reveal">
+          <div className={`${styles.techCol} reveal`}>
             <div className={styles.subtitle}>{t.skills.technical}</div>
             <div className={styles.groups}>
               {TECH_GROUPS.map(g => (
@@ -77,7 +77,7 @@ export default function Skills() {
           </div>
 
           {/* Human skills */}
-          <div className="reveal">
+          <div className={`${styles.proofCol} reveal`}>
             <div className={styles.subtitle}>{t.skills.human}</div>
             <div className={styles.proofGrid}>
               {PROOF_CARDS.map(c => <ProofCard key={c.img} c={c} />)}
