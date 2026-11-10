@@ -13,7 +13,8 @@ function TechPill({ item, color }) {
       ) : item.bi ? (
         <span style={{ fontSize: '12px' }}>📊</span>
       ) : (
-        <img src={item.icon} alt={item.name} width={14} height={14} />
+        <img src={item.icon} alt={item.name} width={14} height={14}
+          style={item.invert ? { filter: 'invert(1)' } : undefined} />
       )}
       {item.name}
     </div>

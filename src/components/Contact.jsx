@@ -71,7 +71,7 @@ export default function Contact() {
             Open to collaboration, hackathons, and technical challenges — feel free to reach out.
           </p>
           <p className={styles.blurb}>
-            Currently seeking an internship in AI, data engineering, or web development.
+            Currently seeking a 6-month PFE internship starting January 2027 in AI, GenAI or LLM engineering.
           </p>
 
           <div className={styles.links}>
@@ -91,7 +91,7 @@ export default function Contact() {
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
               <circle cx="12" cy="9" r="2.5" />
             </svg>
-            Fès, Morocco · Available for internship &amp; full-time · Remote OK
+            Fès, Morocco · PFE internship from Jan 2027 · Remote OK
           </div>
         </div>
 

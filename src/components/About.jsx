@@ -7,14 +7,14 @@ export default function About() {
       <div className={styles.container}>
         <div className={styles.text}>
           <div className="section-label">About Me</div>
-          <p>Hi, I'm Hajar! A 4th-year AI &amp; Digital Transformation engineering student at the <strong>National School of Applied Sciences of Al Hoceima (ENSAH)</strong>.</p>
-          <p style={{ marginTop: '1rem' }}>I'm currently strengthening my expertise in deep learning, Java &amp; Spring Boot, and data engineering while building hands-on projects focused on AI, cloud technologies, and scalable data pipelines.</p>
+          <p>Hi, I'm Hajar! A final-year (5th-year) AI &amp; Digital Transformation engineering student at the <strong>National School of Applied Sciences of Al Hoceima (ENSAH)</strong>.</p>
+          <p style={{ marginTop: '1rem' }}>I build AI-powered applications end to end, from LLM integration and data pipelines to full-stack web development, through internships, academic projects and hackathons.</p>
           <div className={styles.focus}>
             <span className={styles.focusHead}>// Current Focus:</span>
             <ul>
-              <li>Deep learning &amp; Java/Spring Boot development</li>
-              <li>Designing ETL and data pipeline systems</li>
-              <li>Applying data engineering concepts to real-world problems</li>
+              <li>LLMs &amp; Generative AI applications</li>
+              <li>RAG systems and AI agents</li>
+              <li>Data pipelines that feed AI products</li>
             </ul>
           </div>
         </div>
